@@ -7,8 +7,7 @@ const create = async () => {
   open(`${PATH}/${FILENAME}`, "wx", (err, fd) => {
     if (err) {
       if (err.code === "EEXIST") {
-        console.error("FS operation failed");
-        return;
+        throw new Error("FS operation failed")
       }
       throw err;
     }

@@ -1,5 +1,17 @@
+import { cp, stat } from "fs";
+
+const PATH = "src/fs/files";
+const NEWPATH = "src/fs/files_copy";
+
 const copy = async () => {
-    // Write your code here 
+  stat(NEWPATH, (err) => {
+    if (err && err.code === "ENOENT") {
+      cp(PATH, NEWPATH, { recursive: true }, (err) => {
+        if (err) throw err;
+        console.log("Success");
+      });
+    } else throw new Error("FS operation failed");
+  });
 };
 
 copy();
