@@ -12,4 +12,5 @@ const spawnChildProcess = async (args) => {
   const child = fork(PATH, args);
 };
 
-spawnChildProcess(["hello", "hello2"]);
+// Put your arguments in function call to test this functionality
+spawnChildProcess( /* [someArgument1, someArgument2, ...] */);
