@@ -11,9 +11,9 @@ const DEARCHIVE_PATH = `${__dirname}/files/fileToCompress.txt`;
 const ARCHIVE_PATH = `${__dirname}/files/archive.gz`;
 
 const compress = async () => {
-  var gzip = zlib.createGzip();
-  var readStream = fs.createReadStream(DEARCHIVE_PATH);
-  var writeStream= fs.createWriteStream(ARCHIVE_PATH);
+  const gzip = zlib.createGzip();
+  const readStream = fs.createReadStream(DEARCHIVE_PATH);
+  const writeStream = fs.createWriteStream(ARCHIVE_PATH);
   readStream.pipe(gzip).pipe(writeStream);
 };
 

@@ -1,4 +1,4 @@
-import { Worker, isMainThread, parentPort, workerData } from "worker_threads";
+import { Worker } from "worker_threads";
 import os from "os";
 import { dirname } from "path";
 import { fileURLToPath } from "url";
@@ -22,7 +22,7 @@ const performCalculations = async () => {
         worker.on("message", resolve);
         worker.on("error", reject);
         worker.on("exit", (code) => {
-          code !== 0 ? reject : resolve;
+          return code !== 0 ? reject : resolve;
         });
       })
     );

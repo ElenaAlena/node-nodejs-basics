@@ -1,7 +1,12 @@
 import { cp, stat } from "fs";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
 
-const PATH = "src/fs/files";
-const NEWPATH = "src/fs/files_copy";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const PATH = `${__dirname}/files`;
+const NEWPATH = `${__dirname}files_copy`;
 
 const copy = async () => {
   stat(NEWPATH, (err) => {

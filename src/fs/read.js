@@ -1,6 +1,12 @@
 import { open, close, readFile } from "fs";
 
-const PATH = "src/fs/files";
+import { dirname } from "path";
+import { fileURLToPath } from "url";
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const PATH = `${__dirname}/files`;
 const FILENAME = "fileToRead.txt";
 
 const read = async () => {

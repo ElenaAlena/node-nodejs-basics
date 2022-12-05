@@ -1,6 +1,10 @@
-import {access, constants, unlink } from "fs";
+import {access, constants, unlink } from "fs";import { dirname } from "path";
+import { fileURLToPath } from "url";
 
-const PATH = "src/fs/files";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+const PATH = `${__dirname}/files`;
 const FILENAME = "fileToRemove.txt";
 
 const remove = async () => {
